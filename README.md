@@ -126,8 +126,9 @@ docker-compose up -d
    - Allow traffic on port 8000
 
 ## Usage
+![image](https://github.com/user-attachments/assets/b20bcc5b-afe6-47f3-a7c0-72ebe5af43b3)
 
-
+![DEMO1](https://github.com/user-attachments/assets/fe6d472b-bc84-4fca-ae2c-595d63d42476)
 
 1. **Upload Documents**:
    - Drag and drop files onto the upload area, or click to select files
