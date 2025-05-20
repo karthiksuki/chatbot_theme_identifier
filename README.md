@@ -1,15 +1,23 @@
-# Document Research & Theme Analyzer
+# Document Research & Theme Identification Bot
 
-A modern web application for uploading, analyzing and querying documents to extract insights, themes, and relevant information.
+A comprehensive API for document analysis, theme identification, and AI-powered question answering.
 
 ## Features
 
-- User-friendly interface with drag-and-drop file uploads
-- Document storage and management
-- Natural language query processing
-- Document passage retrieval and citation
-- Theme identification from documents
-- Responsive design for desktop and mobile usage
+- **Document Upload & Processing**: Upload and process PDF, DOCX, TXT, and image files
+- **Text Extraction**: Extract text from documents using OCR when needed
+- **Vector Embeddings**: Create and store vector embeddings of document chunks
+- **Theme Identification**: Automatically identify key themes across multiple documents
+- **AI-Powered Q&A**: Ask questions about your documents and get answers with citations
+
+## Architecture
+
+This system uses:
+- **FastAPI**: For the API backend
+- **Pinecone**: Vector database for document embeddings  
+- **OpenAI/Groq**: LLM providers for AI capabilities
+- **SentenceTransformers**: Creating document embeddings
+- **PyPDF2, pytesseract, pdf2image**: Document processing and OCR
 
 ## Prerequisites
 
@@ -17,76 +25,105 @@ A modern web application for uploading, analyzing and querying documents to extr
 - FastAPI
 - Uvicorn
 - Other dependencies listed in requirements.txt
+## Getting Started
 
-## Installation
+### Prerequisites
 
-1. Clone this repository:
+- Docker and Docker Compose
+- Pinecone account (for vector database)
+- OpenAI or Groq API key (for LLM capabilities)
+
+### Installation
+
+1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/document-analyzer.git
-cd document-analyzer
+git clone https://github.com/yourusername/citation-theme-bot.git
+cd citation-theme-bot
 ```
 
-2. Create and activate a virtual environment:
+2. Configure environment variables
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+cp .env.example .env
+# Edit .env with your API keys
 ```
 
-3. Install the required dependencies:
+3. Build and start the Docker container
 ```bash
-pip install -r requirements.txt
+docker-compose up -d
 ```
 
-## Project Structure
+4. Access the API at http://localhost:8000
+   - API documentation is available at http://localhost:8000/docs
 
-```
-document-analyzer/
-│
-├── app/
-│   ├── main.py                # FastAPI application
-│   ├── static/                # Static files (CSS, JS)
-│   ├── templates/             # HTML templates
-│   │   └── html/
-│   │       └── index.html     # Main application page
-│   │
-│   └── uploads/               # Document upload directory
-│   
-├── requirements.txt           # Project dependencies
-└── README.md                  # This file
-```
+## API Endpoints
 
-## Setting Up the Application
+### Document Management
+- `POST /api/upload/`: Upload documents
+- `POST /api/analyze`: Analyze a single document
 
-1. Create necessary directories:
-```bash
-mkdir -p app/static app/templates/html app/uploads
-```
+### Search & Analysis
+- `POST /api/query`: Query documents with natural language
+- `POST /api/themes/`: Extract themes from documents
+- `POST /api/identify-themes`: Identify themes from document chunks
 
-2. Copy the `index.html` file to the templates directory:
-```bash
-cp index.html app/templates/html/
-```
+## Deployment
 
-3. Create a requirements.txt file:
-```
-fastapi==0.103.1
-uvicorn==0.23.2
-python-multipart==0.0.6
-aiofiles==23.2.1
-pydantic==2.3.0
-```
+### Deploying to AWS
 
-## Running the Application
+1. **Set up an EC2 instance**:
+   - Launch an EC2 instance (t3.medium or larger recommended)
+   - Install Docker and Docker Compose
+   - Configure security groups to allow traffic on port 8000
 
-1. Start the FastAPI server:
-```bash
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-```
+2. **Clone and deploy**:
+   ```bash
+   git clone https://github.com/yourusername/citation-theme-bot.git
+   cd citation-theme-bot
+   cp .env.example .env
+   # Edit .env file with your API keys
+   docker-compose up -d
+   ```
 
-2. Open your web browser and navigate to:
-```
-http://localhost:8000
-```
+3. **Set up a load balancer (optional)**:
+   - Create an Application Load Balancer
+   - Configure HTTPS with a certificate
+   - Point to your EC2 instance
+
+### Deploying to Google Cloud
+
+1. **Set up a VM instance**:
+   - Create a VM instance (e2-standard-2 or larger)
+   - Install Docker and Docker Compose
+
+2. **Clone and deploy**:
+   ```bash
+   git clone https://github.com/yourusername/citation-theme-bot.git
+   cd citation-theme-bot
+   cp .env.example .env
+   # Edit .env file with your API keys
+   docker-compose up -d
+   ```
+
+3. **Configure firewall rules**:
+   - Allow traffic on port 8000
+
+### Deploying to Azure
+
+1. **Create an Azure VM**:
+   - Deploy a VM (Standard_D2s_v3 or larger)
+   - Install Docker and Docker Compose
+
+2. **Clone and deploy**:
+   ```bash
+   git clone https://github.com/yourusername/citation-theme-bot.git
+   cd citation-theme-bot
+   cp .env.example .env
+   # Edit .env file with your API keys
+   docker-compose up -d
+   ```
+
+3. **Configure network security group**:
+   - Allow traffic on port 8000
 
 ## Usage
 
