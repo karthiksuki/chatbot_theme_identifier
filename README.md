@@ -37,8 +37,8 @@ This system uses:
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/citation-theme-bot.git
-cd citation-theme-bot
+git clone https://github.com/karthiksuki/chatbot_theme_identifier.git
+cd chatbot_theme_identifier
 ```
 
 2. Configure environment variables
