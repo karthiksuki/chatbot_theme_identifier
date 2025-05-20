@@ -2,6 +2,8 @@
 
 An intelligent research assistant powered by LLMs (OpenAI/Groq) that performs document ingestion, semantic search, cross-document Q&A, and theme synthesis with visual citations.
 
+![photo-collage png](https://github.com/user-attachments/assets/1eded068-ee8c-49fd-8bcf-2e5a86f37d07)
+
 ![image](https://github.com/user-attachments/assets/b20bcc5b-afe6-47f3-a7c0-72ebe5af43b3)
 
 ## Features
