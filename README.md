@@ -1,6 +1,6 @@
 # Document Research & Theme Identification Bot
 
-A comprehensive API for document analysis, theme identification, and AI-powered question answering.
+An intelligent research assistant powered by LLMs (OpenAI/Groq) that performs document ingestion, semantic search, cross-document Q&A, and theme synthesis with visual citations.
 
 ## Features
 
@@ -126,6 +126,8 @@ docker-compose up -d
    - Allow traffic on port 8000
 
 ## Usage
+
+
 
 1. **Upload Documents**:
    - Drag and drop files onto the upload area, or click to select files
